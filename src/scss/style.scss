@@ -144,6 +144,9 @@ img {
 			font-family: $font-main;
 			font-size: 26px;
 			font-weight: bold;
+			word-break: break-word;
+			max-height: 172px;
+			overflow: hidden;
 			@media (min-width: 920px) {
 				font-size: 36px;
 			}
@@ -502,7 +505,7 @@ img {
 
 .subscribe {
 	margin: 75px 0 0;
-	padding: 80px 0 0;
+	padding: 0;
 	background: url(../img/leaf.jpg) center no-repeat;
 	word-break: break-all;
 	&__title {
