@@ -24,13 +24,7 @@ img {
 	padding: 12px 40px;
 	
 }
-.fixed {
-	position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
-    background: #fff;
-}
+
 .nav {
 	display: none;
 	@media (min-width: 992px){
@@ -87,7 +81,7 @@ img {
 }
 
 .slider{
-
+	
 	&__item {
 		height: 640px;
 	}
