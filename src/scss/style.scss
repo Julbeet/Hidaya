@@ -4,19 +4,16 @@
 @import '_vars';
 @import'_slick';
 
-// *{
-// 	outline: 1px solid red;
-// }
+
 body {
 	font-family: $font-stack;
+	word-break: break-all;
 }
 
 img {
 	max-width: 100%;
 }
-@media (max-width: 768px)  {
-	
-}
+
 .logo{
 	fill: #000;
 	} 
@@ -25,8 +22,15 @@ img {
 	display: flex;
 	justify-content: space-between;
 	padding: 12px 40px;
+	
 }
-
+.fixed {
+	position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    background: #fff;
+}
 .nav {
 	display: none;
 	@media (min-width: 992px){
@@ -97,25 +101,35 @@ img {
 	align-items: center;
 	padding: 0 15%;
 	&--left {
-		height: 60%;
+		height: 100%;
+		@media (min-width: 768px){
+			height: 60%;
+		}
 	}
 	&-container {
 		height: 100%;
 		width: 100%;
 		position: absolute;
 		top: 0;
-		left: 10%;
+		left: 0;
 		z-index: 1;
+		@media (min-width: 768px){
+			left: 10%;
+		}
 	}
+
 	&-block{
 		display: flex;
         justify-content: center;
         align-items: center;
 		height: 100%;
-		max-width: 37%;
+		max-width: 100%;
 		text-align: center;
 		overflow: hidden;
 		overflow-wrap: break-word;
+		@media (min-width: 768px){
+			max-width: 37%;
+		}
 		&--left {
 			background-color: rgba(0,0,0,0.5);
 			color: $light-color;
@@ -167,10 +181,15 @@ img {
     width: 37%;
     background-color: #f2f2f2;
     transform: translate(0, -50%);
+    z-index: 2;
     
     .overlay {
+    	display: none;
     	text-align: center;
-    	padding: 10% 0;
+    	padding: 10% 2%;
+    	@media (min-width: 768px) {
+			display: block;
+		}
     }
 }
 
@@ -190,10 +209,13 @@ img {
 		background-image: url(../img/arrow.png);
 		background-size: contain;
 		width: 30px;
-		height: 50px;
+		height: 30px;
 		background-repeat: no-repeat;
 		transform-origin: 50% 50%;
 		transition: all 0.25s ease;
+		@media (min-width: 768px) {
+			height: 50px;
+		}
 		&:hover {
 			transform: translate(0, -50%) 
 					   scale(1.2) ;
@@ -212,8 +234,7 @@ img {
 		transform: translate(0, -50%) 
 				   rotate(180deg);
 
-		&:hover
-		 {
+		&:hover	 {
 			transform: translate(0, -50%) 
 					   scale(1.2) 
 					   rotate(180deg);
@@ -224,12 +245,14 @@ img {
 
 .btn {
 	max-width: 80%;
-    padding: 6% 17%; 
+    padding: 10px 35px; 
 	font-size: 11px;
 	color: $primary-color;
 	text-transform: uppercase;
 	border: 1px solid transparent;
-
+	@media (min-width: 768px) {
+		padding: 20px 55px; 
+	}
 	&:hover {
 			background: $primary-color;
 			color: $accent-color;
@@ -267,6 +290,8 @@ img {
     text-align: center;
     margin-bottom: 65px;
     margin-top: 65px;
+    overflow: hidden;
+    word-break: break-all;
     @media (min-width: 992px){
 		padding-left: 80px;
     	padding-right: 10px;
@@ -308,13 +333,16 @@ img {
 	
 
 	&__title {
-		margin: 0;
-		font-size: 45px;
+		margin: 0 0 15px;
+		font-size: 26px;
 		text-transform: uppercase;
+		@media (min-width: 768px){
+			font-size: 45px;
+		}
 	}
 	&__caption {
 		font-style: italic;
-		margin: 0;
+		margin: 15px 0;
 		font-size: 12px;
 		line-height: 1.8;
 	}
@@ -425,9 +453,12 @@ img {
 
 
 //-----------detailed--------
-
+.detailed-img {
+	width: 100%;
+}
 .about {
 	background-color: #f2f2f2;
+	margin-top: -3px;
 	@media (min-width: 992px){
 		display: flex;
 	}
@@ -435,7 +466,7 @@ img {
 
 .best {
 	text-align: center;
-	padding: 20px 0;
+	padding: 20px;
 	
 	
 	&__img {
@@ -475,37 +506,59 @@ img {
 	&__title {
 		margin: 0;
 		padding-bottom: 35px;
-		font-size: 32px;
+		font-size: 26px;
 		font-weight: bold;
 		text-align: center;
 		color: $light-color;
 		font-family: $font-main;
+		@media (min-width: 768px){
+			font-size: 32px;
+		}
 	}
 }
 
 .form {
 	display: flex;
-	align-items: cener;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 	font-size: 12px;
+	@media (min-width: 768px){
+		flex-direction: row;
+	}
 	@media (min-width: 992px){
 		font-size: 16px;
+		padding-bottom: 100px;
 	}
 	
 	input {
-		height: 50px;
-		width: 28%;
-		padding-left: 20px;
+		height: 30px;
+		width: 50%;
+		margin-bottom: 15px;
+		text-align: center;
 		background-color: #eee; 
 		border: none;
 		&::placeholder {
 			text-transform: uppercase;
 		}
+		@media (min-width: 768px){
+			height: 50px;
+			width: 28%;
+			padding-left: 20px;
+			text-align: left;
+			margin-bottom: 0;
+		}
 	
 	}
 	button {
 		text-transform: uppercase;
-		width: 14%;
+		width: 50%;
+		padding: 10px 0;
+		@media (min-width: 768px){
+			height: 52px;
+			width: 14%;
+			padding: 0;
+		}
 	}
 }
 
@@ -583,15 +636,17 @@ position: absolute;
 			}
 		}
 	}
-	&__box{
-		width: 290px;
+	
+}
+
+#insta__box{
+		// width: 290px;
 		height: 290px;
 		background-color: $accent-color;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-}
 
 //------bottom---------
 .bottom {
@@ -635,6 +690,13 @@ position: absolute;
 			margin-left: 10%;
 			font-size: 11px;
 		}
+		.footer__columns {
+			flex-wrap: wrap;
+			@media (min-width: 768px) {
+				display: flex;
+				flex-wrap: nowrap;
+			}
+		}
 		.socials {
 			font-size: 20px;
 			margin: 20px 0;
@@ -651,15 +713,21 @@ position: absolute;
 		flex-basis: 50%;
 		max-width: 50%;
 		&:not(:first-of-type) {
-			margin-left: 10%;
-
+			@media (min-width: 768px) {
+				margin-left: 10%;
+			}
 		}
 		@media (min-width: 992px) {
 			margin-left: 0;
 		}
 		&--right {
-			flex-basis: 33.3%;
-			max-width: 33.3%;
+			flex-basis: 100%;
+   			max-width: 100%;
+   			@media (min-width: 768px) {
+				flex-basis: 33.3%;
+				max-width: 33.3%;
+			}
+
 			@media (min-width: 992px) {
 				margin-left: 10%;
 			}
@@ -667,9 +735,6 @@ position: absolute;
 			p {
 				line-height: 1.6;
 				font-size: 14px;
-				@media (min-width: 992px) {
-					font-size: 16px;
-				}
 			}
 		}
 	}
